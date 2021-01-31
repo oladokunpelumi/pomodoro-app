@@ -1,0 +1,198 @@
+/* ==========================================================================
+   #POMODORO APP STYLES
+   ========================================================================== */
+
+/**
+ *
+ * Inheriting box sizing slightly better best-practice
+ * https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/
+ *
+ */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Roboto:wght@300;400;500&display=swap');
+
+html {
+  box-sizing: border-box;
+}
+
+*, *::before, *::after {
+  box-sizing: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --pomodoro: #FE5F55;
+  --shortBreak: #78D5D7;
+  --longBreak: #625834;
+}
+
+body {
+  background: #1a1b33;
+  transition: background-color 1s ease;
+  font-family: 'Open Sans', sans-serif;
+  user-select: none;
+}
+main.app{
+  z-index:  3;
+}
+progress {
+  display: none;
+  border-radius: 2px;
+  width: 100%;
+  height: 12px;
+  position: fixed;
+  top: 0;
+}
+
+progress::-webkit-progress-bar {
+ background-color: rgba(0, 0, 0, 0.1);;
+}
+
+progress::-webkit-progress-value {
+  background-color: #fff;
+}
+
+.timer {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  text-align: center;
+}
+
+.clock {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: 50px;
+  margin-bottom: 30px;
+  color: #fff;
+  font-size: 5rem;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+
+}
+.mode-buttons{
+  position: absolute;
+  top: 10%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 56px;
+  width: 400px;
+  border: 2px solid #fff;
+  border-radius: 50px;
+  background-color: #000118;
+}
+
+.mode-button {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  height:45px;
+  width: 30%;
+  cursor: pointer;
+  box-shadow: none;
+  font-weight: 300;
+  color: #fff;
+  border: 1px solid transparent;
+  margin: 4px;
+  border-radius: 50px;
+  padding: 5px 15px;
+  background: none;
+}
+
+.mode-button.active {
+  border-color: #fff;
+}
+
+.main-button {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  box-shadow: rgb(235, 235, 235) 0px 3px 0px;
+  font-size: 22px;
+  height: 55px;
+  text-transform: uppercase;
+  color: #000118;
+  font-weight: 400;
+  width: 200px;
+  background-color: #077187;
+  border-width: initial;
+  border-style: none;
+  border: 1px solid #fff;
+  margin: 20px 0;
+  padding: 0 12px;
+  border-radius: 50px;
+  transition: color 0.5s ease-in-out 0s;
+}
+
+button:focus, button:active {
+  outline: none;
+}
+
+.main-button.active {
+  background-color: #87677B;
+  color: #000118;
+  box-shadow: none;
+  outline: none;
+}
+
+.hidden {
+  display: none;
+}
+.background{
+  position: absolute;
+  top: 50%;  
+  left:50%;  
+  width: 90%;
+  height: 65%;
+  transform: translate(-50%, -50%);
+  z-index: -2;
+} 
+.progress-ring{
+  position: absolute;
+  top: 50%;  
+  left:50%;  
+  transform: translate(-50%, -50%);
+  z-index: -1;
+}
+.progress-ring__circle{
+  transition: stroke-dashoffset 0.35s;
+  transform: rotate(-90deg);
+  transform-origin: 50% 50%;
+}
+@media screen and (max-width: 550px) {
+  .clock {
+    font-size: 4rem;
+  }
+}
+@media screen and (max-width:450px) {
+  .progress-ring{
+    display: none;
+  }
+  progress{
+    display: flex;
+  }
+  .mode-buttons{
+    width: 95%;
+    padding-top: 2px;
+  }
+  .mode-button{
+    width: 30%;
+    margin: 3px;
+    font-size: 0.9rem;
+    padding: 0;
+    height: 40px;
+  }
+  .main-button{
+    top: 55%;
+    width: 150px;
+    height: 40px;
+  }
+}
